@@ -1,0 +1,27 @@
+name 'libassuan'
+org 'amylum'
+
+licenses 'COPYING.LIB'
+
+deps(
+  'libgpg-error': '1.24-6'
+)
+
+configure_flags(
+  prefix: '/usr',
+  'enable-maintainer-mode': nil
+)
+
+cflags
+harden
+
+build do
+  run './autogen.sh'
+  configure
+  make
+  install
+end
+
+test do
+  # TODO: add tests
+end
